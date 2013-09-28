@@ -1,0 +1,1 @@
+This project will access the UH Course Availability web site and examine how many seats are available for courses that the user selects.
