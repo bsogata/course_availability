@@ -1,0 +1,36 @@
+// Place all the styles related to the CoursePages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+
+.navbar-inverse {
+	background-color: #00BA00;
+	background-repeat: repeat-x;
+}
+
+.navbar-inverse .navbar-inner {
+	background-color: #00BA00;
+	background-repeat: repeat-x;
+}
+
+.container {
+	background-color: #00BA00;
+}
+
+ul {
+	font-size: 25px;
+
+}
+
+a {
+	color: #FFFFFF;
+	text-decoration: none;
+	
+}
+
+a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
