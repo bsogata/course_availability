@@ -6,8 +6,8 @@ gem 'rails', '4.0.0'
 #Use of TWitter Bootstrap
 gem 'bootstrap-sass', '2.1'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use PostgreSQL for the database; this will allow for easier transfer to Heroku
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
