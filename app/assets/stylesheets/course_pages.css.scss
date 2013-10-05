@@ -5,32 +5,29 @@
 @import "bootstrap";
 
 
-.navbar-inverse {
+.navbar .navbar-fixed-top .navbar-inverse {
 	background-color: #00BA00;
-	background-repeat: repeat-x;
 }
 
-.navbar-inverse .navbar-inner {
+.navbar-inner {
 	background-color: #00BA00;
-	background-repeat: repeat-x;
 }
 
 .container {
 	background-color: #00BA00;
 }
-
 ul {
 	font-size: 25px;
-
+	text-decoration: none;
 }
 
 a {
+	font-size: 25px;
 	color: #FFFFFF;
 	text-decoration: none;
 	
 }
 
 a:hover {
-	color: #FFFFFF;
 	text-decoration: none;
 }
