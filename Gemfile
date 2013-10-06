@@ -3,11 +3,16 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-#Use of TWitter Bootstrap
+#Use of Twitter Bootstrap
 gem 'bootstrap-sass', '2.1'
 
-# Use PostgreSQL for the database; this will allow for easier transfer to Heroku
-gem 'pg'
+# Use PostgreSQL for the production database; this will allow for easier transfer to Heroku
+group :production do
+  gem 'pg'
+end
+
+# Use sqlite3 for all other databases
+gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
