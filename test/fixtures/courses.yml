@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyText
+  crn: 1
+  section: 1
+  title: MyText
+  credits: 1
+  instructor: MyText
+  seats: 1
+  days: MyText
+  time: MyText
+  room: MyText
+  dates: MyText
+
+two:
+  name: MyText
+  crn: 1
+  section: 1
+  title: MyText
+  credits: 1
+  instructor: MyText
+  seats: 1
+  days: MyText
+  time: MyText
+  room: MyText
+  dates: MyText
