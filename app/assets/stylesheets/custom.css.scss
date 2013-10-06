@@ -1,0 +1,38 @@
+@import "bootstrap";
+
+
+.navbar-inverse .navbar-inner {
+
+	background-color: #00BA00;
+	background-image: none;
+	background-repeat: no-repeat;
+	filter: none;
+}
+
+
+.navbar .container {
+	margin: none;
+	width: auto;
+}
+
+.container {
+	margin: none;
+	width: auto;
+}
+
+.hero-unit {
+	background-color: #FFFFFF;
+}
+
+.navbar .nav li  a {
+	font-size: 25px;
+	color: #FFFFFF;
+	text-shadow: none;
+	text-decoration: none;
+	
+}
+
+a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
