@@ -6,31 +6,15 @@
 	<%= stylesheet_link_tag "course_pages_.css.scss" %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
+	<%= render 'layouts/shim' %>
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 </head>
 <body>
-	<header class="navbar navbar-fixed-top navbar-inverse">
-	<div class="navbar-inner">
-		<div class="container">
-			<nav>
-				<ul class="nav pull-left">
-					<li><%=link_to "Home", :root %></li>
-					
-					<% if signed_in? %>
-						<li><%= link_to "Sign Out", :signout %></li>
-					<% else %>
-						<li><%=link_to "Sign in", :signin %></li>
-					<% end %>
-				</ul>	
-			</nav>
-		</div>
-	</div>
-	</header>
-	
+	<%= render 'layouts/header' %>
 	<div class="container">
-        	<%= yield %>
+		<%=yield%>
 	</div>
 </body>
 </html>

@@ -36,3 +36,34 @@ a:hover {
 	color: #FFFFFF;
 	text-decoration: none;
 }
+
+/* logo */
+
+#logo {
+  float: left;
+  margin-right: 0px;
+  font-size: 1.7em;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* content */
+.hero-unit p {
+	color: #000000;
+	font-size: 30px;
+}
+
+/* home page image */
+.hero-unit img {
+	float: right;
+	height: 500px;
+	width: 500px;
+}

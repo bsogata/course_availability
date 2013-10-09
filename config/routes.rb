@@ -1,6 +1,6 @@
 CourseAvailability::Application.routes.draw do
-  get "course_pages/home"
-
+  get 'course_pages/home'
+  get 'course_pages/help'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :sessions, only: [:new, :create, :destroy]
@@ -8,9 +8,11 @@ CourseAvailability::Application.routes.draw do
   
   get '/signup', to: 'users#new', via: [:get, :post]
   get '/signin', to: 'sessions#new', via: [:get, :post]
-  delete '/signout', to: 'sessions#destroy'
-
-  # You can have the root of your site routed with "root"
+  match '/signout', to: 'sessions#destroy', via: 'delete'
+  
+  get '/help', to: 'course_pages#help', via: [:get]
+  
+    # You can have the root of your site routed with "root"
   root :to => 'course_pages#home'
 
   # Example of regular route:

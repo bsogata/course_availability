@@ -3,11 +3,11 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.where(email: params[:email].downcase)[0]
+    user = User.where(email: params[:session][:email].downcase)[0]
     
-    if user && user.authenticase(params[:password])
+    if user && user.authenticate(params[:session][:password])
       sign_in user
-      redirect_to :home
+      redirect_to user
     else
       flash.now[:error] = 'Invalid email/password combination'
       render 'new'

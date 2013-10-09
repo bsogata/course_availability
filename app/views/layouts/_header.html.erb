@@ -1,0 +1,19 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+	<div class="navbar-inner">
+		<div class="container">
+			<nav>
+				<%= link_to "Course Availability", :root, id: "logo" %>
+				<ul class="nav pull-right">
+					<li><%=link_to "Home", :root %></li>
+					<% if signed_in? %>
+						<li><%= link_to "Account", edit_user_path %></li>
+						<li><%= link_to "Sign Out", :signout, method: 'delete' %></li>
+					<% else %>
+						<li><%=link_to "Sign in", :signin %></li>
+					<% end %>
+					<li><%=link_to "Help", 'help'%></li>
+				</ul>	
+			</nav>
+		</div>
+	</div>
+	</header>

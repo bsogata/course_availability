@@ -8,7 +8,7 @@ gem 'bootstrap-sass', '2.1'
 
 # Use PostgreSQL for the production database; this will allow for easier transfer to Heroku
 group :production do
-  gem 'pg'
+  gem 'pg', '0.15.1'
 end
 
 # Use sqlite3 for all other databases

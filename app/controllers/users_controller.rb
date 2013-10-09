@@ -7,7 +7,23 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       @user = User.new
-    end    
+    end  
+  end
+  
+  def create
+    if signed_in?
+      redirect_to root_path
+    else
+      @user = User.new(user_params)
+      
+      if @user.save
+        sign_in @user
+        flash[:success] = "Welcome to the Course Availability Tool!"
+        redirect_to @user
+      else
+        render 'new'
+      end
+    end
   end
   
   def show
@@ -16,23 +32,19 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:id])
-    
-    if @user.update_attributes(params[:user])
+    if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      sign_in @user
       redirect_to @user
     else
-      redirect_to :edit
+      render 'edit'
     end
   end
   
   private
-  def current_user
+  def correct_user
     @user = User.find(params[:id])
     redirect_to(root_path) unless current_user?(@user)
   end

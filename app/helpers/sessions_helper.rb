@@ -1,11 +1,14 @@
 module SessionsHelper
   def sign_in(user)
-    cookies.permanent[:remember_token] = user.remember_token
+    remember_token = User.new_remember_token
+    cookies.permanent[:remember_token] = remember_token
+    user.update_attribute(:remember_token, User.encrypt(remember_token))
     self.current_user = user
   end
   
   def signed_in?
-    return !current_user.nil?
+    puts "Current User: #{current_user}"
+    !current_user.nil?
   end
   
   def sign_out
@@ -18,17 +21,18 @@ module SessionsHelper
   end
   
   def current_user?(user)
-    return user == current_user
+    user == current_user
   end
   
   def current_user
-    return @current_user ||= User.where(remember_token: cookies[:remember_token])[0]
+    remember_token = User.encrypt(cookies[:remember_token])
+    @current_user ||= User.where(remember_token: remember_token)[0]
   end
   
   def signed_in_user
     unless signed_in?
       store_location
-      redirect_to signin_path, notice: "Please sign in."
+      redirect_to :signin, notice: "Please sign in."
     end
   end
 end
