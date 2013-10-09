@@ -1,3 +1,72 @@
 // Place all the styles related to the CoursePages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+
+.navbar-inverse .navbar-inner {
+
+	background-color: #00BA00;
+	background-image: none;
+	background-repeat: no-repeat;
+	filter: none;
+}
+
+
+.navbar .container {
+	margin: none;
+	width: auto;
+}
+
+.container {
+	margin: none;
+	width: auto;
+}
+
+.hero-unit {
+	background-color: #FFFFFF;
+}
+
+.navbar .nav li  a {
+	font-size: 25px;
+	color: #FFFFFF;
+	text-shadow: none;
+	text-decoration: none;
+	
+}
+
+a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+/* logo */
+
+#logo {
+  float: left;
+  margin-right: 0px;
+  font-size: 1.7em;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* content */
+.hero-unit p {
+	color: #000000;
+	font-size: 30px;
+}
+
+/* home page image */
+.hero-unit img {
+	float: right;
+	height: 500px;
+	width: 500px;
+}
