@@ -16,14 +16,21 @@
 		<div class="container">
 			<nav>
 				<ul class="nav pull-left">
-					<li><%=link_to "Home", '#'%></li>
-					<li><%=link_to "Sign in", '#'%></li>
+					<li><%=link_to "Home", :root %></li>
+					
+					<% if signed_in? %>
+						<li><%= link_to "Sign Out", :signout %></li>
+					<% else %>
+						<li><%=link_to "Sign in", :signin %></li>
+					<% end %>
 				</ul>	
 			</nav>
 		</div>
 	</div>
 	</header>
 	
-	<%=yield%>
+	<div class="container">
+        	<%= yield %>
+	</div>
 </body>
 </html>

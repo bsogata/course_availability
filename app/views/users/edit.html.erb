@@ -1,0 +1,10 @@
+<% provide(:title, "Edit Account") %>
+
+<div class="row">
+  <div>
+    <%= form_for(@user) do |f| %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

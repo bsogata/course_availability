@@ -1,0 +1,61 @@
+<% provide(:title, @user.name) %>
+
+<div class="row">
+  <h1><%= @user.name %></h1>
+  
+  <h2>Tracking Courses:</h2>
+  <table>
+    <tr>
+      <th>Course</th>
+      <th>CRN</th>
+      <th>Section</th>
+      <th>Title</th>
+      <th>Credits</th>
+      <th>Instructor</th>
+      <th>Seats Available</th>
+      <th>Days</th>
+      <th>Time</th>
+      <th>Room</th>
+      <th>Dates</th>
+    </tr>
+    <tr>
+      <% @trackings.each do |t| %>
+        <% course = Course.find(t.id) %>
+        
+        <td>
+          <%= course.course %>
+        </td>
+        <td>
+          <%= course.crn %>
+        </td>
+        <td>
+          <%= course.section %>
+        </td>
+        <td>
+          <%= course.title %>
+        </td>
+        <td>
+          <%= course.credits %>
+        </td>
+        <td>
+          <%= course.instructor %>
+        </td>
+        <td>
+          <%= course.seats %>
+        </td>
+        <td>
+          <%= course.days %>
+        </td>
+        <td>
+          <%= course.time %>
+        </td>
+        <td>
+          <%= course.room %>
+        </td>
+        <td>
+          <%= course.dates%>
+        </td>
+      <% end %>
+    </tr>
+  </table>
+</div>
