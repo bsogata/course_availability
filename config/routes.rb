@@ -12,8 +12,6 @@ CourseAvailability::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
   
   get '/help', to: 'course_pages#help', via: [:get]
-  
-   
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
