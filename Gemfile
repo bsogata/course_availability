@@ -56,5 +56,6 @@ gem 'annotate'
 
 group :test do
   gem 'cucumber-rails', '1.4.0', :require => false
+  gem 'rspec-rails', '2.13.1'
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
