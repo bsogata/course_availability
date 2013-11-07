@@ -13,6 +13,11 @@
 						<li><%=link_to "Sign in", :signin %></li>
 					<% end %>
 					<li><%=link_to "Help", 'help'%></li>
+					<%# search field %>
+					<%= form_tag course_pages_path do %>
+						<%= text_field_tag :search %>
+						<%= submit_tag "Search" %>
+					<% end %>
 				</ul>	
 			</nav>
 		</div>

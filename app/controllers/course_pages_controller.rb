@@ -4,4 +4,5 @@ class CoursePagesController < ApplicationController
   
   def help
   end
+  
 end
