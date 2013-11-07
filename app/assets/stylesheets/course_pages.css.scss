@@ -61,6 +61,7 @@ a:hover {
 
 /* content */
 .hero-unit p {
+	padding-top: 20px;
 	color: #000000;
 	font-size: 30px;
 }
@@ -78,4 +79,11 @@ header {
 
 .alert {
 	padding-top: 100px;
+}
+
+/* search field */
+.search {
+	float: left;
+	padding-top: 8px;
+	padding-left: 20px;
 }

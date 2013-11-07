@@ -3,6 +3,13 @@
 		<div class="container">
 			<nav>
 				<%= link_to "Course Availability", :root, id: "logo" %>
+				<div class="search">
+					<%# search field %>
+					<%= form_tag course_pages_path do %>
+						<%= text_field_tag :search %>
+						<%= submit_tag "Search" %>
+					<% end %>
+				</div>
 				<ul class="nav pull-right">
 					<li><%=link_to "Home", :root %></li>
 					<% if signed_in? %>
@@ -13,11 +20,7 @@
 						<li><%=link_to "Sign in", :signin %></li>
 					<% end %>
 					<li><%=link_to "Help", 'help'%></li>
-					<%# search field %>
-					<%= form_tag course_pages_path do %>
-						<%= text_field_tag :search %>
-						<%= submit_tag "Search" %>
-					<% end %>
+
 				</ul>	
 			</nav>
 		</div>
