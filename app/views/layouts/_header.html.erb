@@ -5,7 +5,7 @@
 				<%= link_to "Course Availability", :root, id: "logo" %>
 				<div class="search">
 					<%# search field %>
-					<%= form_tag course_pages_path do %>
+					<%= form_tag searches_path do %>
 						<%= text_field_tag :search %>
 						<%= submit_tag "Search" %>
 					<% end %>
@@ -19,7 +19,7 @@
 					<% else %>
 						<li><%=link_to "Sign in", :signin %></li>
 					<% end %>
-					<li><%=link_to "Help", 'help'%></li>
+					<li><%=link_to "Help", help_path %></li>
 
 				</ul>	
 			</nav>
