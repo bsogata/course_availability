@@ -9,6 +9,7 @@ CourseAvailability::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   
+  get '/course_list', to: 'course_pages#course_list', via: [:get]
   get '/signup', to: 'users#new', via: [:get, :post]
   get '/signin', to: 'sessions#new', via: [:get, :post]
   match '/signout', to: 'sessions#destroy', via: 'delete'

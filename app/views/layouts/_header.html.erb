@@ -12,6 +12,7 @@
 				</div>
 				<ul class="nav pull-right">
 					<li><%=link_to "Home", :root %></li>
+					<li><%=link_to "Course List", course_list_path %></li>
 					<% if signed_in? %>
 						<li><%= link_to "Profile", current_user %></li>
 						<li><%= link_to "Settings", edit_user_path(current_user) %></li>
