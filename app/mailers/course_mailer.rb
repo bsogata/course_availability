@@ -1,5 +1,5 @@
 class CourseMailer < ActionMailer::Base
-  default from: "uh.class.avail@gmail.com"
+  default from: "class.avail.uh@gmail.com"
   
   def welcome_email(user)
   	@user = user

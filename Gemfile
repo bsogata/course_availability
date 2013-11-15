@@ -52,6 +52,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'nokogiri'
 
 gem 'annotate'
 
@@ -60,13 +61,3 @@ group :test do
   gem 'rspec-rails', '2.13.1'
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-gem 'nokogiri'
-=======
-gem 'nokogiri'
->>>>>>> 00ce7c6cbbb6545ed591bd617cdca77ff65535cd
-=======
-gem 'nokogiri'
->>>>>>> 00ce7c6cbbb6545ed591bd617cdca77ff65535cd
