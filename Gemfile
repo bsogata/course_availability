@@ -62,7 +62,11 @@ group :test do
 end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 gem 'nokogiri'
+=======
+gem 'nokogiri'
+>>>>>>> 00ce7c6cbbb6545ed591bd617cdca77ff65535cd
 =======
 gem 'nokogiri'
 >>>>>>> 00ce7c6cbbb6545ed591bd617cdca77ff65535cd
