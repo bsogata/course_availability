@@ -7,6 +7,7 @@ CourseAvailability::Application.routes.draw do
   resources :course_pages
   resources :searches
   resources :sessions, only: [:new, :create, :destroy]
+  resources :trackings
   resources :users
   
   get '/course_list', to: 'course_pages#course_list', via: [:get]
