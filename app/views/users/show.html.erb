@@ -53,9 +53,19 @@
           <%= course.room %>
         </td>
         <td>
-          <%= course.dates%>
+          <%= course.dates %>
         </td>
       <% end %>
     </tr>
   </table>
+  
+  <div id="add-new-courses">
+    <h3>Add Course:</h3>
+    <%= form_tag tracking_path do %>
+      Semester: <%= select_tag 'semester', options_for_select(get_semesters()), onchange: 'updateDepartments()' %><br />
+      Department: <%= select_tag 'department' %><br />
+      Course: <%= select_tag 'course' %><br />
+      <%= submit_tag 'Add' %>
+    <% end %>
+  </div>
 </div>

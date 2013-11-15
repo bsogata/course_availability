@@ -172,6 +172,7 @@ DEPENDENCIES
   database_cleaner!
   jbuilder (~> 1.2)
   jquery-rails
+  nokogiri
   pg (= 0.15.1)
   rails (= 4.0.0)
   rspec-rails (= 2.13.1)

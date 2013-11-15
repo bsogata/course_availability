@@ -59,3 +59,5 @@ group :test do
   gem 'rspec-rails', '2.13.1'
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
+
+gem 'nokogiri'
