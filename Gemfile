@@ -56,7 +56,6 @@ gem 'nokogiri'
 
 gem 'annotate'
 
-
 group :test do
   gem 'cucumber-rails', '1.4.0', :require => false
   gem 'rspec-rails', '2.13.1'
