@@ -1,5 +1,10 @@
 <% provide(:title, 'Course List') %>
 
+<% courses = get_test_courses() %>
+<%= javascript_tag do %>
+  setCourseData(<%= raw ['ICS', 'MATH', 'PSY'].to_json%>, <%= raw courses.to_json %>);
+<% end %>
+
 <div class="box-row">
 	<%= select_tag(:department, options_for_select([['ICS', 1], ['MATH', 2]]), 
 												:prompt => "Select a Department") %>
