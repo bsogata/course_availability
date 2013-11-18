@@ -6,14 +6,7 @@
 <% end %>
 
 <div class="box-row">
-<<<<<<< HEAD
-	<%= form_tag course_list_path do %>
-		<%= select_tag 'department', nil, onchange: 'updateCourses()', 
-											:prompt => "Select Department" %>	
-	<% end %>																			
-=======
 	<%= select_tag(:department, nil, :prompt => "Select a Department") %>
->>>>>>> 0178a424bdd80e716a022c612fca9570557650ef
 </div>
 
 <div class="list-row">
