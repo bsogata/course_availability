@@ -1,3 +1,8 @@
+$(document).ready(function()
+{
+  updateDepartments();
+});
+
 /*
  * Populates the Department select tag.
  * 
@@ -27,9 +32,5 @@ function setCourseData(departments, courses)
 {
   this.departments = departments;
   this.courses = courses;
+//  updateDepartments();
 }
-
-$(document).ready(function()
-{
-  updateDepartments();
-});

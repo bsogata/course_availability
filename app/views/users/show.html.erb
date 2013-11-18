@@ -1,11 +1,10 @@
 <% provide(:title, @user.name) %>
 
 <!-- Get the departments and courses for JavaScript to use later -->
-<% courses = get_test_courses() %>
+<% courses = get_test_courses() %>     
 <%= javascript_tag do %>
   setCourseData(<%= raw ['ICS', 'MATH', 'PSY'].to_json%>, <%= raw courses.to_json %>);
 <% end %>
-
 
 <div class="row">
   <h1><%= @user.name %></h1>
@@ -68,7 +67,7 @@
   
   <div id="add-new-courses">
     <h3>Add Course:</h3>
-    <%= form_tag tracking_path do %>
+    <%= form_tag trackings_path do %>
       Department: <%= select_tag 'department', nil, onchange: 'updateCourses()' %><br />
       Course: <%= select_tag 'course' %><br />
       <%= submit_tag 'Add' %>
