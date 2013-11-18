@@ -6,8 +6,10 @@
 <% end %>
 
 <div class="box-row">
-	<%= select_tag(:department, options_for_select([['ICS', 1], ['MATH', 2]]), 
-												:prompt => "Select a Department") %>
+	<%= form_tag course_list_path do %>
+		<%= select_tag 'department', nil, onchange: 'updateCourses()', 
+											:prompt => "Select Department" %>	
+	<% end %>																			
 </div>
 
 <div class="list-row">
