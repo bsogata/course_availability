@@ -5,25 +5,54 @@
  
 function updateDepartments()
 {
-  semester = $('#semester').val();
-  departments = $('#department');
-  url = 'https://www.sis.hawaii.edu/uhdad/' + semester;
-  alert(url);
-  
-  $.get(url, function(data)
-        {
-          alert(data);
-          var retrieved = $("a", data);
-          
-          departments.html('');
-          
-          for (var i = 0; i < retrieved.length; i++)
-          {
-            alert(retrieved[i]);
-            newOption = $('<option></option');
-            newOption.attr('value', retrieved[i].attr('href'));
-            newOption.text(retrieved[i].val());
-            departments.append(newOption);
-          }
-        });
+  var departments = $("#department");
+  departments.html("");
+  departments.append($("<option></option>").text("Select a department"));
+  for (var i = 0; i < this.departments.length; i++)
+  {
+    departments.append($("<option></option>").text(this.departments[i]));
+  }
 }
+
+
+/*
+ * Populates the Course select tag.
+ * 
+ */
+ 
+function updateCourses()
+{
+  var courses = $("#course");
+  courses.html("");
+  courses.append($("<option></option>").text("Select a course"));
+  
+  var departmentIndex = this.departments.indexOf($("#department").val());
+  
+  if (departmentIndex != -1)
+  {
+    for (var i = 0; i < this.courses[departmentIndex].length; i++)
+    {
+      courses.append($("<option></option>").text(this.courses[departmentIndex][i]))
+    }
+  }
+}
+
+/*
+ * Loads in data for the course tracking functionality.
+ *
+ * Parameters:
+ *   departments    The array containing department names.
+ *   courses        The array containing the courses for the above departments.
+ *
+ */
+
+function setCourseData(departments, courses)
+{
+  this.departments = departments;
+  this.courses = courses;
+}
+
+$(document).ready(function()
+{
+  updateDepartments();
+});
