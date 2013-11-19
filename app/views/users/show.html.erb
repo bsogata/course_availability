@@ -24,18 +24,18 @@
       <th>Room</th>
       <th>Dates</th>
     </tr>
-    <tr>
-      <% @trackings.each do |t| %>
-        <% course = Course.find(t.id) %>
+    <% @trackings.each do |t| %>
+      <tr>
+        <% course = Course.find(t.course_id) %>
         
         <td>
-          <%= course.course %>
+          <%= course.name%>
         </td>
         <td>
           <%= course.crn %>
         </td>
         <td>
-          <%= course.section %>
+          <%= "%03d" % course.section %>
         </td>
         <td>
           <%= course.title %>
@@ -61,8 +61,8 @@
         <td>
           <%= course.dates %>
         </td>
-      <% end %>
-    </tr>
+      </tr>
+    <% end %>
   </table>
   
   <div id="add-new-courses">
