@@ -8,4 +8,9 @@ class CourseMailer < ActionMailer::Base
   	@user = user
   	mail(to: @user.email, subject: 'Welcome to UH Course Availability web application')
   end
+  
+  def notification(user, tracking) 
+  	@user = user
+  	mail(to: @user.email, subject: 'Space notification')
+  end
 end
