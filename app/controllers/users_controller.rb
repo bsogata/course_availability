@@ -20,6 +20,7 @@ class UsersController < ApplicationController
         sign_in @user
         flash[:success] = "Welcome to the Course Availability Tool!"
         CourseMailer.welcome_email(@user).deliver
+        CourseMailer.notify_email(@user).deliver
         redirect_to @user
       else
         render 'new'
