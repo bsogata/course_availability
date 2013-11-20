@@ -139,22 +139,8 @@ function showCourses()
       // Create a row in the table for this course
       var row = document.createElement("tr");
       
-      // Labs
-      if (crn == 0)
-      {
-        $(row).append("<td></td>");
-        $(row).append("<td></td>");
-        $(row).append("<td></td>");
-        $(row).append("<td></td>");
-        $(row).append("<td></td>");
-        $(row).append("<td></td>");
-        $(row).append("<td></td>");
-        $(row).append("<td>" + days + "</td>");
-        $(row).append("<td>" + time + "</td>");
-        $(row).append("<td>" + room + "</td>");
-        $(row).append("<td>" + dates + "</td>");        
-      }
-      else
+      // Lectures
+      if (crn != 0)
       {
         $(row).append("<td>" + name + "</td>");
         $(row).append("<td>" + crn + "</td>");
@@ -167,9 +153,25 @@ function showCourses()
         $(row).append("<td>" + time + "</td>");
         $(row).append("<td>" + room + "</td>");
         $(row).append("<td>" + dates + "</td>");
+        $(tableBody).append(row);
+      }
+      // Labs
+      else if ((crn == 0) && (days.length > 0))
+      {
+        $(row).append("<td></td>");
+        $(row).append("<td></td>");
+        $(row).append("<td></td>");
+        $(row).append("<td></td>");
+        $(row).append("<td></td>");
+        $(row).append("<td></td>");
+        $(row).append("<td></td>");
+        $(row).append("<td>" + days + "</td>");
+        $(row).append("<td>" + time + "</td>");
+        $(row).append("<td>" + room + "</td>");
+        $(row).append("<td>" + dates + "</td>");        
+        $(tableBody).append(row);
       }
       
-      $(tableBody).append(row);
       first = false;
     });
   }
