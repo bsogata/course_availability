@@ -145,7 +145,10 @@ function showCourses()
         $(row).append("<td>" + name + "</td>");
         $(row).append("<td>" + crn + "</td>");
         $(row).append("<td>" + section + "</td>");
-        $(row).append("<td>" + title + "</td>");
+        $(row).append("<td>" + ((title.indexOf("Restriction:") == -1) ?
+                                (title) :
+                                (title.substring(0, title.indexOf("Restriction")) +
+                                 "<br />" + title.substring(title.indexOf("Restriction"))))+ "</td>");
         $(row).append("<td>" + credits + "</td>");
         $(row).append("<td>" + instructor + "</td>");
         $(row).append("<td>" + seats + "</td>");
