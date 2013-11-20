@@ -138,4 +138,17 @@ module TrackingsHelper
     
     return courses
   end
+  
+  #
+  # Returns the HTML of the appropriate course pages.
+  #
+  # Returns:
+  #   An array containing the HTML code for the ICS, MATH, and PSY departments.
+  #
+  
+  def get_department_pages
+    return [Nokogiri::HTML(open('https://www.sis.hawaii.edu/uhdad/avail.classes?i=MAN&t=201430&s=ICS')).css(".listOfClasses").to_s,
+            Nokogiri::HTML(open('https://www.sis.hawaii.edu/uhdad/avail.classes?i=MAN&t=201430&s=MATH')).css(".listOfClasses").to_s,
+            Nokogiri::HTML(open('https://www.sis.hawaii.edu/uhdad/avail.classes?i=MAN&t=201430&s=PSY')).css(".listOfClasses").to_s]
+  end
 end

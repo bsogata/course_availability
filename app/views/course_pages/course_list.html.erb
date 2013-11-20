@@ -1,30 +1,35 @@
 <% provide(:title, 'Course List') %>
 
-<% courses = get_test_courses() %>
+<% department_pages = get_department_pages() %>
 <%= javascript_tag do %>
-  setCourseData(<%= raw ['ICS', 'MATH', 'PSY'].to_json%>, <%= raw courses.to_json %>);
+  setDepartmentData(<%= raw ['ICS', 'MATH', 'PSY'].to_json %>, <%= raw department_pages.to_json %>);
 <% end %>
 
 <div class="box-row">
-	<%= select_tag(:department, nil, :prompt => "Select a Department") %>
+	<%= select_tag(:department, nil, :prompt => "Select a Department", onchange: 'showCourses()') %>
 </div>
 
 <div class="list-row">
   
   <h2>Course List:</h2>
-  <table border="1">
-    <tr>
-      <th>Course</th>
-      <th>CRN</th>
-      <th>Section</th>
-      <th>Title</th>
-      <th>Credits</th>
-      <th>Instructor</th>
-      <th>Seats Available</th>
-      <th>Days</th>
-      <th>Time</th>
-      <th>Room</th>
-      <th>Dates</th>
-    </tr>
+  <table id="course-list-table" border="1">
+		<thead>
+			<tr>
+				<th>Course</th>
+				<th>CRN</th>
+				<th>Section</th>
+				<th>Title</th>
+				<th>Credits</th>
+				<th>Instructor</th>
+				<th>Seats Available</th>
+				<th>Days</th>
+				<th>Time</th>
+				<th>Room</th>
+				<th>Dates</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
   </table>
 </div>
