@@ -9,68 +9,71 @@
 <div class="row">
   <h1><%= @user.name %></h1>
   
-  <h2>Tracking Courses:</h2>
-  <table border="1">
-    <tr>
-      <th>Course</th>
-      <th>CRN</th>
-      <th>Section</th>
-      <th>Title</th>
-      <th>Credits</th>
-      <th>Instructor</th>
-      <th>Seats Available</th>
-      <th>Days</th>
-      <th>Time</th>
-      <th>Room</th>
-      <th>Dates</th>
-    </tr>
-    <% @trackings.each do |t| %>
+  <%= form_tag trackings_path do %>
+    <h2>Tracking Courses:</h2>
+    <table border="1">
       <tr>
-        <% course = Course.find(t.course_id) %>
-        
-        <td>
-          <%= course.name%>
-        </td>
-        <td>
-          <%= course.crn %>
-        </td>
-        <td>
-          <%= "%03d" % course.section %>
-        </td>
-        <td>
-          <%= course.title %>
-        </td>
-        <td>
-          <%= course.credits %>
-        </td>
-        <td>
-          <%= course.instructor %>
-        </td>
-        <td>
-          <%= course.seats %>
-        </td>
-        <td>
-          <%= course.days %>
-        </td>
-        <td>
-          <%= course.time %>
-        </td>
-        <td>
-          <%= course.room %>
-        </td>
-        <td>
-          <%= course.dates %>
-        </td>
+        <th>Course</th>
+        <th>CRN</th>
+        <th>Section</th>
+        <th>Title</th>
+        <th>Credits</th>
+        <th>Instructor</th>
+        <th>Seats Available</th>
+        <th>Days</th>
+        <th>Time</th>
+        <th>Room</th>
+        <th>Dates</th>
       </tr>
-    <% end %>
-  </table>
-  
-  <div id="add-new-courses">
-    <h3>Add Course:</h3>
-    <%= form_tag trackings_path do %>
-      Department: <%= select_tag 'department', nil, onchange: 'updateCourses()' %><br />
-      Course: <%= select_tag 'course' %><br />
-      <%= submit_tag 'Add' %>
-    <% end %>
-  </div>
+      <% @trackings.each do |t| %>
+        <tr>
+          <% course = Course.find(t.course_id) %>
+          
+          <td>
+            <%= course.name%>
+          </td>
+          <td>
+            <%= course.crn %>
+          </td>
+          <td>
+            <%= "%03d" % course.section %>
+          </td>
+          <td>
+            <%= course.title %>
+          </td>
+          <td>
+            <%= course.credits %>
+          </td>
+          <td>
+            <%= course.instructor %>
+          </td>
+          <td>
+            <%= course.seats %>
+          </td>
+          <td>
+            <%= course.days %>
+          </td>
+          <td>
+            <%= course.time %>
+          </td>
+          <td>
+            <%= course.room %>
+          </td>
+          <td>
+            <%= course.dates %>
+          </td>
+          <td>
+            <%= link_to 'Remove', t, method: 'delete' %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    
+    <div id="add-new-courses">
+      <h3>Add Course:</h3>
+        Department: <%= select_tag 'department', nil, onchange: 'updateCourses()' %><br />
+        Course: <%= select_tag 'course' %><br />
+        <%= submit_tag 'Add' %>
+    </div>
+  <% end %>
 </div>

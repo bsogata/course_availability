@@ -15,6 +15,9 @@ class TrackingsController < ApplicationController
     
     matches = page.css("tr").select {|tr| tr.content.include?(course) && tr.content.include?(section)}
         
+    # Attempts to find lab if one exists on the line after the match
+    puts page
+        
     column_index = 0
     crn = 0
     name = ""
@@ -72,21 +75,32 @@ class TrackingsController < ApplicationController
     
     # Track the course if possible
     tracking = Tracking.where(user_id: current_user.id, course_id: course.id)
+    already_tracking = tracking.empty?
     
-    if tracking.empty?
+    if already_tracking
       Tracking.create(user_id: current_user.id, course_id: course.id)
     end
     
     # If the process was successful, flash success message
-    if course.errors.empty? && tracking.empty?
+    if course.errors.empty? && already_tracking
       flash[:success] = "#{course_param} added to Tracking List"    
     # Else if the course was already being tracked, flash notification
-    elsif !tracking.empty?
+    elsif !already_tracking
       flash[:notice] = "Already tracking #{course_param}"
     # Else if there was an error, flash error message
     else
       flash[:error] = "Error when tracking course: \n#{course.errors}"
     end
+    redirect_to :back
+  end
+  
+  def destroy
+    tracking = Tracking.find(params[:id])
+    course = Course.find(tracking.course_id)
+    
+    tracking.delete
+    course.delete if Tracking.where(course_id: course.id).length == 0
+    
     redirect_to :back
   end
 end
