@@ -2,6 +2,7 @@ class SearchesController < ApplicationController
 
   def create
     # Actual search should be performed here
+    @courses = Course.search(params[:search])
     render 'show'
   end
   

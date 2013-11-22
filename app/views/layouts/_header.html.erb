@@ -5,9 +5,9 @@
 				<%= link_to "Course Availability", :root, id: "logo" %>
 				<div class="search">
 					<%# search field %>
-					<%= form_tag searches_path do %>
-						<%= text_field_tag :search %>
-						<%= submit_tag "Search" %>
+					<%= form_tag searches_path, :method => 'get' do %>
+						<%= text_field_tag :search, params[:search] %>
+						<%= submit_tag "Search", :name => nil %>
 					<% end %>
 				</div>
 				<ul class="nav pull-right">
