@@ -1,0 +1,53 @@
+<div class="row">
+  <table border="1">
+    <tr>
+      <th>Course</th>
+      <th>CRN</th>
+      <th>Section</th>
+      <th>Title</th>
+      <th>Credits</th>
+      <th>Instructor</th>
+      <th>Seats Available</th>
+      <th>Days</th>
+      <th>Time</th>
+      <th>Room</th>
+      <th>Dates</th>
+    </tr>
+    <% @courses.each do |c| %>
+      <tr>
+        <td>
+          <%= c.name %>        
+        </td>
+        <td>
+          <%= c.crn %>        
+        </td>
+        <td>
+          <%= c.section %>        
+        </td>
+        <td>
+          <%= c.title %>        
+        </td>
+        <td>
+          <%= c.credits %>        
+        </td>
+        <td>
+          <%= c.instructor %>        
+        </td>
+        <td>
+          <%= c.seats %>        
+        </td>
+        <td>
+          <%= c.days %>        
+        </td>
+        <td>
+          <%= c.time %>        
+        </td>
+        <td>
+          <%= c.room %>        
+        </td>
+        <td>
+          <%= c.dates %>        
+        </td>
+      </tr>
+    <% end %>
+</div>
