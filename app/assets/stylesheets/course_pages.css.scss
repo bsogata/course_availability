@@ -23,8 +23,15 @@
 	width: auto;
 }
 
+/* Home page styling and image styling on Home page */
 .hero-unit {
 	background-color: #FFFFFF;
+	
+	img {
+		float: center;
+		height: 200px;
+		width: 500px;
+	}
 }
 
 .navbar .nav li  a {
@@ -66,12 +73,6 @@ a:hover {
 	font-size: 30px;
 }
 
-/* home page image */
-.hero-unit img {
-	float: right;
-	height: 500px;
-	width: 500px;
-}
 
 header {
 	clear: both;
