@@ -36,7 +36,7 @@ class TrackingsController < ApplicationController
     
     matches.first.css("td").each do |td|
       # Before registration opens
-      if column_count == 14
+      if column_count == 12
         case column_index
           when 1
             crn = td.content
@@ -87,7 +87,6 @@ class TrackingsController < ApplicationController
           when 13
             dates = td.content
         end
-        
       end
       
       column_index += 1
