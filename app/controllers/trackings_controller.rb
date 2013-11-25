@@ -32,30 +32,62 @@ class TrackingsController < ApplicationController
     room = ""
     dates = ""
     
-    matches.first.css("td").each do |td| 
-      case column_index
-        when 1
-          crn = td.content
-        when 2
-          name = td.content
-        when 3
-          section = td.content
-        when 4
-          title = td.content
-        when 5
-          credits = td.content
-        when 6
-          instructor = td.content
-        when 7
-          seats = td.content
-        when 8
-          days = td.content
-        when 9
-          time = td.content
-        when 10
-          room = td.content
-        when 11
-          dates = td.content
+    column_count = matches.first.css("td").count
+    
+    matches.first.css("td").each do |td|
+      # Before registration opens
+      if column_count == 14
+        case column_index
+          when 1
+            crn = td.content
+          when 2
+            name = td.content
+          when 3
+            section = td.content
+          when 4
+            title = td.content
+          when 5
+            credits = td.content
+          when 6
+            instructor = td.content
+          when 7
+            seats = td.content
+          when 8
+            days = td.content
+          when 9
+            time = td.content
+          when 10
+            room = td.content
+          when 11
+            dates = td.content
+        end
+      # After registration opens
+      else
+        case column_index
+          when 1
+            crn = td.content
+          when 2
+            name = td.content
+          when 3
+            section = td.content
+          when 4
+            title = td.content
+          when 5
+            credits = td.content
+          when 6
+            instructor = td.content
+          when 7
+            seats = td.content
+          when 10
+            days = td.content
+          when 11
+            time = td.content
+          when 12
+            room = td.content
+          when 13
+            dates = td.content
+        end
+        
       end
       
       column_index += 1
