@@ -16,6 +16,7 @@ class TrackingsController < ApplicationController
     matches = page.css("tr").select {|tr| tr.content.include?(course) && tr.content.include?(section)}
         
     # Attempts to find lab if one exists on the line after the match
+    
     puts page
         
     column_index = 0

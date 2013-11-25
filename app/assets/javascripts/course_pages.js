@@ -75,7 +75,7 @@ function showCourses()
       $("td", $(this)).each(function()
       {
 //        alert($(this).text());
-        // Lectures
+        // Lectures -- Before Registration
         if (columnCount == 12)
         {
           switch (columnIndex)
@@ -115,6 +115,7 @@ function showCourses()
               break;
           }
         }
+        // Labs -- Before Registration
         else if (columnCount == 11)
         {
           switch (columnIndex)
@@ -133,6 +134,67 @@ function showCourses()
               break;
           }
         }
+        
+        // Lectures -- After Registration Begins
+        if (columnCount == 14)
+        {
+          switch (columnIndex)
+          {
+            case 1:
+              crn = $(this).text();
+              break;
+            case 2:
+              name = $(this).text();
+              break;
+            case 3:
+              section = $(this).text();
+              break;
+            case 4:
+              title = $(this).text();
+              break;
+            case 5:
+              credits = $(this).text();
+              break;
+            case 6:
+              instructor = $(this).text();
+              break;
+            case 7:
+              seats = $(this).text();
+              break;
+            case 10:
+              days = $(this).text();
+              break;
+            case 11:
+              time = $(this).text();
+              break;
+            case 12:
+              room = $(this).text();
+              break;
+            case 13:
+              dates = $(this).text();
+              break;
+          }
+        }
+        // Labs -- After Registration Begins
+        else if (columnCount == 13)
+        {
+          switch (columnIndex)
+          {
+            case 9:
+              days = $(this).text();
+              break;
+            case 10:
+              time = $(this).text();
+              break;
+            case 11:
+              room = $(this).text();
+              break;
+            case 12:
+              dates = $(this).text();
+              break;
+          }
+        }
+
         columnIndex++;
       });
       
