@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113092436) do
+ActiveRecord::Schema.define(version: 20131126231427) do
 
   create_table "course_lists", force: true do |t|
     t.string   "name"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20131113092436) do
     t.text     "email"
     t.text     "password_digest"
     t.string   "remember_token"
+    t.integer  "frequency_value"
+    t.text     "frequency"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
