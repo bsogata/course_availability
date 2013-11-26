@@ -59,8 +59,8 @@ function showCourses()
     $("tr", wrapper).each(function()
     {
       columnIndex = 0;
-			name = "";
 			crn = 0;
+			name = "";
 			section = 0;
       title = "";
       credits = 0;
@@ -204,8 +204,8 @@ function showCourses()
       // Lectures
       if (crn != 0)
       {
-        $(row).append("<td>" + name + "</td>");
         $(row).append("<td>" + crn + "</td>");
+        $(row).append("<td>" + name + "</td>");
         $(row).append("<td>" + section + "</td>");
         $(row).append("<td>" + ((title.indexOf("Restriction:") == -1) ?
                                 (title) :

@@ -13,12 +13,9 @@ class TrackingsController < ApplicationController
     url = "https://www.sis.hawaii.edu/uhdad/avail.classes?i=MAN&t=201430&s=#{department}"
     page = Nokogiri::HTML(open(url))
     
-    matches = page.css("tr").select {|tr| tr.content.include?(course) && tr.content.include?(section)}
-        
-    # Attempts to find lab if one exists on the line after the match
-    
-    puts page
-        
+    matches = page.css("tr").select {|tr| tr.content.include?(course) &&
+                                          tr.content.include?(section)}
+            
     column_index = 0
     crn = 0
     name = ""
@@ -62,7 +59,7 @@ class TrackingsController < ApplicationController
             dates = td.content
         end
       # After registration opens
-      else
+      elsif column_count == 14
         case column_index
           when 1
             crn = td.content
@@ -91,18 +88,51 @@ class TrackingsController < ApplicationController
       
       column_index += 1
     end
+    
+    # Attempts to find lab if one exists on the line after the match
+    rest_of_page = page.to_s[page.to_s.index(matches.first.to_s) + matches.first.to_s.length ...
+                             page.to_s.length]
+    next_row = rest_of_page[rest_of_page.index('<tr'), rest_of_page.index('</tr>') + 5]
+    next_row_parser = Nokogiri.HTML(next_row)
+    
+    lab_days = ""
+    lab_time = ""
+    lab_room = ""
+    lab_dates = ""
+    lab_column_count = next_row_parser.css('td').count
+    
+    # Labs will have 11 or 13 columns depending on whether waitlist columns are present,
+    # but the fields for the labs are always the last four
+    if (lab_column_count == 11 || lab_column_count == 13)
+      column_index = 0
+      
+      next_row_parser.css('td').each do |lab_column|
+        case column_index
+          when lab_column_count - 4
+            lab_days = lab_column.content
+          when lab_column_count - 3
+            lab_time = lab_column.content
+          when lab_column_count - 2
+            lab_room = lab_column.content
+          when lab_column_count - 1
+            lab_dates = lab_column.content
+        end
+        column_index += 1
+      end      
+    end
   
     # Check the (theoretically) unique elements for a match in Course first,
     # then add the other fields
     course = Course.find_or_create_by(crn: crn, name: name, section: section)
-    course.title = title
+    course.title = (title.include?("Restriction:")) ?
+                   (title.insert(title.index("Restriction:"), "\n")) : (title)
     course.credits = credits
     course.instructor = instructor
     course.seats = seats
-    course.days = days
-    course.time = time
-    course.room = room
-    course.dates = dates
+    course.days = days + ((lab_days.empty?) ? ("") : ("\n#{lab_days}"))
+    course.time = time + ((lab_time.empty?) ? ("") : ("\n#{lab_time}"))
+    course.room = room + ((lab_room.empty?) ? ("") : ("\n#{lab_room}"))
+    course.dates = dates + ((lab_dates.empty?) ? ("") : ("\n#{lab_dates}"))
     course.save
     
     # Track the course if possible
@@ -129,9 +159,18 @@ class TrackingsController < ApplicationController
   def destroy
     tracking = Tracking.find(params[:id])
     course = Course.find(tracking.course_id)
+    course_name = "#{course.name}-#{"%03d" % course.section}"
     
     tracking.delete
     course.delete if Tracking.where(course_id: course.id).length == 0
+    
+    # If the deletion was successful, flash success message
+    if tracking.errors.empty?
+      flash[:success] = "Stopped tracking #{course_name}"
+    # Else flash error message
+    else
+      flash[:error] = "Error when removing tracking for #{course_name}: \n#{tracking.errors}"      
+    end
     
     redirect_to :back
   end

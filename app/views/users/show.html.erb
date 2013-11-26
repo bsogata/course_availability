@@ -13,8 +13,8 @@
     <h2>Tracking Courses:</h2>
     <table border="1">
       <tr>
-        <th>Course</th>
         <th>CRN</th>
+        <th>Course</th>
         <th>Section</th>
         <th>Title</th>
         <th>Credits</th>
@@ -30,16 +30,16 @@
           <% course = Course.find(t.course_id) %>
           
           <td>
-            <%= course.name%>
+            <%= course.crn %>
           </td>
           <td>
-            <%= course.crn %>
+            <%= course.name %>
           </td>
           <td>
             <%= "%03d" % course.section %>
           </td>
           <td>
-            <%= course.title %>
+            <%= render 'multiline_course_cell', field: course.title %>
           </td>
           <td>
             <%= course.credits %>
@@ -51,16 +51,16 @@
             <%= course.seats %>
           </td>
           <td>
-            <%= course.days %>
+            <%= render 'multiline_course_cell', field: course.days %>
           </td>
           <td>
-            <%= course.time %>
+            <%= render 'multiline_course_cell', field: course.time %>
           </td>
           <td>
-            <%= course.room %>
+            <%= render 'multiline_course_cell', field: course.room %>
           </td>
           <td>
-            <%= course.dates %>
+            <%= render 'multiline_course_cell', field: course.dates %>
           </td>
           <td>
             <%= link_to 'Remove', t, method: 'delete' %>

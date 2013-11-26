@@ -1,8 +1,8 @@
 <div class="row">
   <table border="1">
     <tr>
-      <th>Course</th>
       <th>CRN</th>
+      <th>Course</th>
       <th>Section</th>
       <th>Title</th>
       <th>Credits</th>
@@ -13,40 +13,40 @@
       <th>Room</th>
       <th>Dates</th>
     </tr>
-    <% @courses.each do |c| %>
+    <% @matches.each do |m| %>
       <tr>
         <td>
-          <%= c.name %>        
+          <%= m[search_indices[:crn]] %>    
         </td>
         <td>
-          <%= c.crn %>        
+          <%= m[search_indices[:name]] %>
         </td>
         <td>
-          <%= c.section %>        
+          <%= m[search_indices[:section]] %> 
         </td>
         <td>
-          <%= c.title %>        
+          <%= render 'multiline_course_cell', field: m[search_indices[:title]] %>
         </td>
         <td>
-          <%= c.credits %>        
+          <%= m[search_indices[:credits]] %>  
         </td>
         <td>
-          <%= c.instructor %>        
+          <%= m[search_indices[:instructor]] %>
         </td>
         <td>
-          <%= c.seats %>        
+          <%= m[search_indices[:seats]] %>
         </td>
         <td>
-          <%= c.days %>        
+          <%= render 'multiline_course_cell', field: m[search_indices[:days]] %>
         </td>
         <td>
-          <%= c.time %>        
+          <%= render 'multiline_course_cell', field: m[search_indices[:time]] %>
         </td>
         <td>
-          <%= c.room %>        
+          <%= render 'multiline_course_cell', field: m[search_indices[:room]] %>
         </td>
         <td>
-          <%= c.dates %>        
+          <%= render 'multiline_course_cell', field: m[search_indices[:dates]] %>
         </td>
       </tr>
     <% end %>
