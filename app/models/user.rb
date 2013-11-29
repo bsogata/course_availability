@@ -8,6 +8,9 @@
 #  name            :text
 #  email           :text
 #  password_digest :text
+#  remember_token  :string(255)
+#  frequency_value :integer
+#  frequency       :text
 #
 
 class User < ActiveRecord::Base
