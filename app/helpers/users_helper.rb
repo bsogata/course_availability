@@ -7,7 +7,7 @@ module UsersHelper
 		
 		#Initial idea of testing if it is daily selection
 		if @frequency == 'daily'
-			if Time.now() == Time.beginning_of_day()
+			if Time.now == Time.beginning_of_day
 		   		CoursMailer.notify_email(@user)
 		   		Resque.enqueue(Time.beginning_of_day(), User, @frequency)
 		   	end
@@ -15,9 +15,9 @@ module UsersHelper
 		elsif @frequency == 'min'
 			# Currently the closest function for finding the current minute and add the value 
 			# from the user
-		    @time = Time.beginning_of_minute() + @frequency_value
+		    @time = Time.now + @frequency_value.minutes
 		    
-		    if Time.now() == @time
+		    if Time.now == @time
 				CoursMailer.notify_email(@user)
 				Resque.enqueue(@time, User, @frequency)
 			end
@@ -25,9 +25,9 @@ module UsersHelper
 		elsif @frequency == 'hr'
 			# Currently the closest function for finding the current hour and add the value 
 			# from the user
-			@time_hours = Time.beginning_of_hour() + @frequency_value
+			@time_hours = Time.now + @frequency_value.hours
 			
-			if Time.now() == @time_hours 
+			if Time.now == @time_hours 
 				CoursMailer.notify_email(@user)
 				Resque.enqueue(@time_hours, User, @frequency)
 			end
