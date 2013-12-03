@@ -7,6 +7,9 @@
 					<%# search field %>
 					<%= form_tag searches_path do %>
 						<%= text_field_tag :search %>
+				    <input name="authenticity_token" 
+						    	 type="hidden" 
+							     value="<%= form_authenticity_token %>"/>						
 						<%= submit_tag "Search" %>
 					<% end %>
 				</div>

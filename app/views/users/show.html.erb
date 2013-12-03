@@ -10,6 +10,9 @@
   <h1><%= @user.name %></h1>
   
   <%= form_tag trackings_path do %>
+    <input name="authenticity_token" 
+           type="hidden" 
+           value="<%= form_authenticity_token %>"/>    
     <h2>Tracking Courses:</h2>
     <table border="1">
       <tr>

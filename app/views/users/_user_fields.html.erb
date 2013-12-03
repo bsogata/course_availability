@@ -9,3 +9,7 @@
 
 <%= f.label :password_confirmation, "Confirm Password" %>
 <%= f.password_field :password_confirmation %>
+
+<input name="authenticity_token" 
+       type="hidden" 
+       value="<%= form_authenticity_token %>"/>
