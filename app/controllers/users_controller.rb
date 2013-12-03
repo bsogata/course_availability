@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
   
   def create
+    response.headers['X-CSRF-Token'] = form_authenticity_token
     if signed_in?
       redirect_to root_path
     else

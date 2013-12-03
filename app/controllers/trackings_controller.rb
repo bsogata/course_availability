@@ -3,6 +3,7 @@ require 'open-uri'
 
 class TrackingsController < ApplicationController
   def create
+    response.headers['X-CSRF-Token'] = form_authenticity_token    
     course_param = params[:course]
     department = params[:department]
     course = course_param[0 ... course_param.index('-')]

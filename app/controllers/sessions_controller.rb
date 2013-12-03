@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   end
   
   def create
+    response.headers['X-CSRF-Token'] = form_authenticity_token    
     user = User.where(email: params[:session][:email].downcase)[0]
     
     if user && user.authenticate(params[:session][:password])
