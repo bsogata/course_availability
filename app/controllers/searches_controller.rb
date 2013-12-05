@@ -32,6 +32,6 @@ class SearchesController < ApplicationController
       flash.now[:success] = "#{@matches.count} results found for \"#{flash[:search]}\""
     end
     
-    flash[:search].clear
+    flash.delete(:search)
   end
 end
