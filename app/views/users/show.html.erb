@@ -1,9 +1,9 @@
 <% provide(:title, @user.name) %>
 
 <!-- Get the departments and courses for JavaScript to use later -->
-<% courses = get_test_courses() %>     
+<% courses = get_test_courses() %>
 <%= javascript_tag do %>
-  setCourseData(<%= raw ['ICS', 'MATH', 'PSY'].to_json%>, <%= raw courses.to_json %>);
+//  setCourseData(<%= raw ['ICS', 'MATH', 'PSY'].to_json%>, <%= raw courses.to_json %>);
 <% end %>
 
 <div class="row">
