@@ -65,6 +65,9 @@ gem 'figaro'
 #Resque for background jobs
 gem 'resque', '~> 1.25.1'
 
+# rufus-scheduler 
+gem 'rufus-scheduler', '~> 3.0.2'
+
 group :test do
   gem 'cucumber-rails', '1.4.0', :require => false
   gem 'rspec-rails', '2.13.1'
