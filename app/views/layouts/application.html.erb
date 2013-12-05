@@ -5,13 +5,13 @@
 	<%= stylesheet_link_tag    "application", media: "all" %>
 	<%= javascript_include_tag "application" %>
 	
-	<!--
-	  Only load the JavaScript with the same name as the current controller;
-		this really only applies to course_pages and trackings
-	-->
-	<%= javascript_include_tag controller_name %>
-	<%= javascript_include_tag "assets/trackings" if controller_name == "users" %>
-	<%= javascript_include_tag "assets/course_pages" if controller_name == "users" %>
+  <% if controller_name == "users" %>
+    <%= javascript_include_tag "trackings" %>			
+  <% end %>
+	
+  <% if controller_name == "course_pages" %>
+	  <%= javascript_include_tag "course_pages" %>
+  <% end %>
 	
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>	
 	<%= csrf_meta_tags %>

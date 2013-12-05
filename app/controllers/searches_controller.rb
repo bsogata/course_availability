@@ -27,9 +27,9 @@ class SearchesController < ApplicationController
     end
     
     if @matches.empty?
-      flash[:error] = "No results found for #{flash[:search]}"
+      flash.now[:error] = "No results found for #{flash[:search]}"
     else
-      flash[:success] = "#{@matches.count} results found for \"#{flash[:search]}\""
+      flash.now[:success] = "#{@matches.count} results found for \"#{flash[:search]}\""
     end
     
     flash[:search].clear

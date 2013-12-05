@@ -1,6 +1,8 @@
-<% if field.include?("\n") %>
-  <%= field[0 ... field.index("\n")] %><br />
-  <%= field[field.index("\n") + 1 ... field.length] %>
-<% else %>
-  <%= field %>
+<% if !field.nil? %> 
+  <% if field.include?("\n") %>
+    <%= field[0 ... field.index("\n")] %><br />
+    <%= field[field.index("\n") + 1 ... field.length] %>
+  <% else %>
+    <%= field %>
+  <% end %>
 <% end %>
