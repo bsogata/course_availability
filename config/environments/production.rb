@@ -77,4 +77,15 @@ CourseAvailability::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+  #Settings to send email from Gmail account
+	ActionMailer::Base.smtp_settings = {
+		:address	=> "smtp.gmail.com",
+		:port		=> 587,
+		:domain		=> "gmail.com",
+		:user_name	=> ENV["USERNAME"],
+		:password 	=> ENV["PASSWORD"],
+		:authentication	=> "plain",
+		:enable_starttls_auto => true
+	}
 end
