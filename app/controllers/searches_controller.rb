@@ -1,7 +1,6 @@
 class SearchesController < ApplicationController
 
   def create
-    response.headers['X-CSRF-Token'] = form_authenticity_token
     # Actual search should be performed in index
     flash[:search] = params[:search]
     redirect_to searches_path
