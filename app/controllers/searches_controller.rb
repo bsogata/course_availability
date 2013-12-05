@@ -1,7 +1,6 @@
 class SearchesController < ApplicationController
 
   def create
-    response.headers['X-CSRF-Token'] = form_authenticity_token
     # Actual search should be performed in index
     flash[:search] = params[:search]
     redirect_to searches_path
@@ -28,9 +27,9 @@ class SearchesController < ApplicationController
     end
     
     if @matches.empty?
-      flash[:error] = "No results found for #{flash[:search]}"
+      flash.now[:error] = "No results found for #{flash[:search]}"
     else
-      flash[:success] = "#{@matches.count} results found for \"#{flash[:search]}\""
+      flash.now[:success] = "#{@matches.count} results found for \"#{flash[:search]}\""
     end
     
     flash[:search].clear
