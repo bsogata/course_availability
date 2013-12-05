@@ -10,8 +10,8 @@
 		this really only applies to course_pages and trackings
 	-->
 	<%= javascript_include_tag controller_name %>
-	<%= javascript_include_tag "trackings" if controller_name == "users" %>
-	<%= javascript_include_tag "course_pages" if controller_name == "users" %>
+	<%= javascript_include_tag "assets/trackings" if controller_name == "users" %>
+	<%= javascript_include_tag "assets/course_pages" if controller_name == "users" %>
 	
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>	
 	<%= csrf_meta_tags %>
