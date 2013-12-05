@@ -36,10 +36,17 @@ class UsersController < ApplicationController
   end
   
   def update
-    if @user.update_attributes(user_params)
+    for p in params[:user]
+      puts p
+    end
+    
+    if current_user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
     else
+      error_message = "Error when updating user information:<br />"
+      current_user.errors.full_messages.each {|e| error_message += "#{e}<br />"}
+      flash.now[:error] = error_message.html_safe;
       render 'edit'
     end
   end

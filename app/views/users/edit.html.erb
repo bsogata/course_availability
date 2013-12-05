@@ -7,11 +7,11 @@
       
       <%= label_tag 'frequency', 'Frequency Value' %>
       <!-- Text field for the user to enter a value for the frequency to send out the email -->
-      <%= text_field_tag :frequency , nil, :placeholder => "Please enter a value" %>
+      <%= f.text_field :frequency_value , :placeholder => "Please enter a value" %>
       
       <%= label_tag 'time', 'Time Frame' %>
       <!-- Drop down menu for user to select the time to send out email. E.g. hr, min etc -->
-      <%= select_tag(:value, options_for_select([["day", 1], ["hr", 2], ["min", 3]]),
+      <%= f.select(:frequency, options_for_select(["day", "hr", "min"], @user.frequency),
       														:prompt => 'Select a time frame') %>
       
       <%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
