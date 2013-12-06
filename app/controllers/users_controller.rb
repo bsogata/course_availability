@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ActionView::Helpers::TextHelper
   before_filter :signed_in_user, only: [:edit, :update, :destroy]
   before_filter :correct_user, only: [:edit, :update, :destroy]
   
@@ -22,6 +23,9 @@ class UsersController < ApplicationController
         CourseMailer.welcome_email(@user).deliver
         redirect_to @user
       else
+        error_message = "#{pluralize(@user.errors.count, 'error')}: <br />"
+        @user.errors.full_messages.each {|e| error_message += "#{e} <br />"}
+        flash[:error] = error_message.html_safe
         render 'new'
       end
     end
