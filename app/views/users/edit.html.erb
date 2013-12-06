@@ -17,4 +17,6 @@
       <%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
+  <%= link_to "Delete your account", @user, method: :delete,
+              data: {confirm: "Are you sure you want to permanently delete your account?"} %>  
 </div>

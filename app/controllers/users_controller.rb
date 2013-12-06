@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update]
-  before_filter :correct_user, only: [:edit, :update]
+  before_filter :signed_in_user, only: [:edit, :update, :destroy]
+  before_filter :correct_user, only: [:edit, :update, :destroy]
   
   def new
     if signed_in?
@@ -49,6 +49,13 @@ class UsersController < ApplicationController
       flash.now[:error] = error_message.html_safe;
       render 'edit'
     end
+  end
+  
+  def destroy
+    User.find(params[:id]).delete
+    Tracking.where(user_id: params[:id]).delete_all
+    flash[:success] = "Deleted account"
+    redirect_to root_path
   end
   
   private
