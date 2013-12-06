@@ -1,1 +1,1 @@
-This project will access the UH Course Availability web site and examine how many seats are available for courses that the user selects.
+This project will access the UH Course Availability web site and examine how many seats are available for courses that the user selects.  If there are seats available, this will send a notification email to inform the user that seats are now available.
