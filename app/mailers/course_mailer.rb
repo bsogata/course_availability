@@ -17,8 +17,8 @@ class CourseMailer < ActionMailer::Base
   end
   
   def notify_email(user) 
--  	@user = user
--  	mail(to: @user.email, subject: 'Space notification')
--  end
+  	@user = user
+  	mail(to: @user.email, subject: 'Space notification')
+  end
 
 end
