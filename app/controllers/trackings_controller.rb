@@ -145,7 +145,8 @@ class TrackingsController < ApplicationController
     
     # If the process was successful, flash success message
     if course.errors.empty? && already_tracking
-      flash[:success] = "#{course_param} added to Tracking List"    
+      flash[:success] = "#{course_param} added to Tracking List"
+      CourseMailer.tracking_email(current_user, course).deliver
     # Else if the course was already being tracked, flash notification
     elsif !already_tracking
       flash[:notice] = "Already tracking #{course_param}"

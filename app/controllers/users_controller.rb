@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       else
         error_message = "#{pluralize(@user.errors.count, 'error')}: <br />"
         @user.errors.full_messages.each {|e| error_message += "#{e} <br />"}
-        flash[:error] = error_message.html_safe
+        flash.now[:error] = error_message.html_safe
         render 'new'
       end
     end
