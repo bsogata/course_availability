@@ -1,5 +1,5 @@
 module UsersHelper
-		def self.perform(user)
+	def self.perform(user)
 		@user = user
 		@frequent_value = @user.frequency_value
 		@frequent = @user.frequency
