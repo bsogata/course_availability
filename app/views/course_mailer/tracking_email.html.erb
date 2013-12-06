@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      You are now tracking <%= @course.name + "-" + ("%03d" % @course.section) %>.
+      This course has <%= @course.seats %> seats remaining.
+      
+      <% if @course.seats == 0 %>
+        If any seats open up, we will send you a notification email within
+        <%= @user.frequency_value + " " %>
+        <% case (@user.frequency) %>
+          <% when "min" %>
+            <%= (@user.frequency_value == 1) ? ("minute") : ("minutes") %>
+          <% when "hr" %>
+            <%= (@user.frequency_value == 1) ? ("hour") : ("hours") %>
+          <% when "day" %>
+            <%= (@user.frequency_value == 1) ? ("day") : ("days") %>
+          <% else %>
+            <%= (@user.frequency_value == 1) ? ("indeterminate time unit") : ("indeterminate time units") %>
+        <% end %>
+        .
+        
+        To change the frequency of these notifications,
+        <a href="http://obscure-mesa-6109.herokuapp.com/users/<%= @user.id %>/edit">log in to your account</a>
+        and adjust the frequency settings to the desired settings.
+      <% end %>
+    </p>
+  </body>
+</html>
