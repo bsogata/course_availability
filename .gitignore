@@ -27,3 +27,5 @@ doc/
 
 # Ignore application configuration; this includes email passwords
 /config/application.yml
+# Ignore application configuration
+/config/application.yml

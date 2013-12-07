@@ -46,6 +46,7 @@ class UsersController < ApplicationController
     
     if current_user.update_attributes(user_params)
       flash[:success] = "Profile updated"
+      CourseMailer.notify_email(@user).deliver
       redirect_to @user
     else
       error_message = "Error when updating user information:<br />"
