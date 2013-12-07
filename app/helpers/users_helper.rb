@@ -16,7 +16,7 @@ module UsersHelper
 		scheduler = Rufus::Scheduler.new
 		
 		#Initial idea of testing if it is daily selection
-		if @frequent == 'daily'
+		if @frequent == 'day'
 			
 			scheduler.every(@frequent_value.to_s() + "d") do
 				CourseMailer.notify_email(@user).deliver
