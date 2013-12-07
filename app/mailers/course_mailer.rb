@@ -1,3 +1,5 @@
+include UsersHelper
+
 class CourseMailer < ActionMailer::Base
   default from: "UH Course"
   
@@ -18,7 +20,8 @@ class CourseMailer < ActionMailer::Base
   
   def notify_email(user)
   	@user = user
-  	mail(to: @user.email, subject: "Notification Test")
+  	@courses = courses_to_email(@user)
+  	mail(to: @user.email, subject: "Notification Test") if !@courses.empty?
   end
 
 end

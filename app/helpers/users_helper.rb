@@ -68,8 +68,9 @@ module UsersHelper
       page = Nokogiri::HTML(open(url)).css('table.listOfClasses')
       
       match = page.css("tr").select {|tr| tr.content.include?(course.name) &&
-                                          tr.content.include?(course.section)}.first
-      current_seats = match.css("td")[7]
+                                          tr.content.include?("%03d" % course.section)}.first
+      current_seats = match.css("td")[7].text.to_i
+      puts "Course #{course.name + '-' + ("%03d" % course.section)}: #{seats} seats to #{current_seats} seats"
       
       # If transition between zero and non-zero, then send email
       if (seats != current_seats) && ((seats == 0) || (current_seats == 0))
@@ -79,9 +80,9 @@ module UsersHelper
       # Update the Course in the database
       course.seats = current_seats.to_i
       course.save
-      
     end
     
+    puts "Courses: #{courses}"
     return courses
   end
 end
