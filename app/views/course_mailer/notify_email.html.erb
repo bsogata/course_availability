@@ -8,8 +8,17 @@
     <p><h1>Hi <%= @user.name %></h1></p>
     
     <!-- Possible layout for the email -->
-    <p>This is to test the schedule in sending notifications.</p>
-  
-    <p>Thanks you! Have a great day!</p>
+    <p>This is a list of the courses that have changed:</p>
+    
+    <ul>
+    <% @courses.each do |c| %>
+      <li>
+        <%= "#{c.name + '-' + ("%03d" % c.section)} (CRN #{c.crn})" %>
+        <%= "no longer " if c.seats == 0 %>
+        <%= "has seats available." %>
+      </li>
+    <% end %>
+    </ul>  
+    <p>Thank you! Have a great day!</p>
   </body>
 </html>
