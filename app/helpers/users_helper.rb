@@ -1,4 +1,14 @@
 module UsersHelper
+    # Under development
+    # 
+    # This method accepts a input of a user variable and obtains the
+    # frequency value and the frequency e.g. daily, min, or hr.
+    # 
+    # Based on the frequency it uses a scheduler to send out emails.
+    #
+    # As of now it sends email based on frequency, but not based on
+    # if the seats have been deducted.
+    #
 	def perform(user)
 		@user = user
 		@frequent_value = @user.frequency_value
