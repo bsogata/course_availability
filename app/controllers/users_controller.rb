@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include ActionView::Helpers::TextHelper
+  include UsersHelper
   before_filter :signed_in_user, only: [:edit, :update, :destroy]
   before_filter :correct_user, only: [:edit, :update, :destroy]
   
@@ -46,7 +47,7 @@ class UsersController < ApplicationController
     
     if current_user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      CourseMailer.notify_email(@user).deliver
+      perform(@user)
       redirect_to @user
     else
       error_message = "Error when updating user information:<br />"
