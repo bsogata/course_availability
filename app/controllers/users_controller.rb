@@ -47,7 +47,8 @@ class UsersController < ApplicationController
     
     if current_user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      perform(@user)
+      # Currently disabled while developers test an alternate solution using initializers
+#      perform(@user)
       redirect_to @user
     else
       error_message = "Error when updating user information:<br />"

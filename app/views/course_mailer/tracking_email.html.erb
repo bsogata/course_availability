@@ -10,7 +10,7 @@
       
       <% if @course.seats == 0 %>
         If any seats open up, we will send you a notification email within
-        <%= @user.frequency_value + " " %>
+        <%= @user.frequency_value.to_s + " " %>
         <% case (@user.frequency) %>
           <% when "min" %>
             <%= (@user.frequency_value == 1) ? ("minute") : ("minutes") %>

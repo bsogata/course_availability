@@ -18,9 +18,9 @@ class CourseMailer < ActionMailer::Base
 																									 ("%03d" % @course.section)}")
   end
   
-  def notify_email(user)
+  def notify_email(user, courses)
   	@user = user
-  	@courses = courses_to_email(@user)
+  	@courses = courses
   	mail(to: @user.email, subject: "Notification Test") if !@courses.empty?
   end
 
