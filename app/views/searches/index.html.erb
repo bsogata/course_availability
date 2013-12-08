@@ -19,25 +19,25 @@
       <% unless m[search_indices[:crn]].nil? %>
         <tr>
           <td>
-            <%= m[search_indices[:crn]] %>    
+            <%= highlight(m[search_indices[:crn]], @search_term.split(" ")) %>    
           </td>
           <td>
-            <%= m[search_indices[:name]] %>
+            <%= highlight(m[search_indices[:name]], @search_term.split(" ")) %>
           </td>
           <td>
-            <%= m[search_indices[:section]] %> 
+            <%= highlight(m[search_indices[:section]], @search_term.split(" ")) %> 
           </td>
           <td>
             <%= render 'multiline_course_cell', field: m[search_indices[:title]] %>
           </td>
           <td>
-            <%= m[search_indices[:credits]] %>  
+            <%= highlight(m[search_indices[:credits]], @search_term.split(" ")) %>  
           </td>
           <td>
-            <%= m[search_indices[:instructor]] %>
+            <%= highlight(m[search_indices[:instructor]], @search_term.split(" ")) %>
           </td>
           <td>
-            <%= m[search_indices[:seats]] %>
+            <%= highlight(m[search_indices[:seats]], @search_term.split(" ")) %>
           </td>
           <td>
             <%= render 'multiline_course_cell', field: m[search_indices[:days]] %>

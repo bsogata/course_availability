@@ -1,3 +1,5 @@
+include ActionView::Helpers::TextHelper
+
 class SearchesController < ApplicationController
 
   def create
@@ -31,6 +33,8 @@ class SearchesController < ApplicationController
     else
       flash.now[:success] = "#{@matches.count} results found for \"#{flash[:search]}\""
     end
+    
+    @search_term = flash[:search]
     
     flash.delete(:search)
   end

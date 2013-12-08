@@ -1,8 +1,8 @@
 <% if !field.nil? %> 
   <% if field.include?("\n") %>
-    <%= field[0 ... field.index("\n")] %><br />
-    <%= field[field.index("\n") + 1 ... field.length] %>
+    <%= highlight(field[0 ... field.index("\n")], @search_term.split(" ")) %><br />
+    <%= highlight(field[field.index("\n") + 1 ... field.length], @search_term.split(" ")) %>
   <% else %>
-    <%= field %>
+    <%= highlight(field, @search_term.split(" ")) %>
   <% end %>
 <% end %>
