@@ -18,6 +18,10 @@ class CourseMailer < ActionMailer::Base
 																									 ("%03d" % @course.section)}")
   end
   
+  # To send out notification email of the seats for particular classes
+  #
+  # Parameters: user - the user object created when the account is created
+  #             courses - the classes
   def notify_email(user, courses)
   	@user = user
   	@courses = courses
