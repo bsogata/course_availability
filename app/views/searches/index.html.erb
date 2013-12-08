@@ -16,40 +16,42 @@
       <th>Dates</th>
     </tr>
     <% @matches.each do |m| %>
-      <tr>
-        <td>
-          <%= m[search_indices[:crn]] %>    
-        </td>
-        <td>
-          <%= m[search_indices[:name]] %>
-        </td>
-        <td>
-          <%= m[search_indices[:section]] %> 
-        </td>
-        <td>
-          <%= render 'multiline_course_cell', field: m[search_indices[:title]] %>
-        </td>
-        <td>
-          <%= m[search_indices[:credits]] %>  
-        </td>
-        <td>
-          <%= m[search_indices[:instructor]] %>
-        </td>
-        <td>
-          <%= m[search_indices[:seats]] %>
-        </td>
-        <td>
-          <%= render 'multiline_course_cell', field: m[search_indices[:days]] %>
-        </td>
-        <td>
-          <%= render 'multiline_course_cell', field: m[search_indices[:time]] %>
-        </td>
-        <td>
-          <%= render 'multiline_course_cell', field: m[search_indices[:room]] %>
-        </td>
-        <td>
-          <%= render 'multiline_course_cell', field: m[search_indices[:dates]] %>
-        </td>
-      </tr>
+      <% unless m[search_indices[:crn]].nil? %>
+        <tr>
+          <td>
+            <%= m[search_indices[:crn]] %>    
+          </td>
+          <td>
+            <%= m[search_indices[:name]] %>
+          </td>
+          <td>
+            <%= m[search_indices[:section]] %> 
+          </td>
+          <td>
+            <%= render 'multiline_course_cell', field: m[search_indices[:title]] %>
+          </td>
+          <td>
+            <%= m[search_indices[:credits]] %>  
+          </td>
+          <td>
+            <%= m[search_indices[:instructor]] %>
+          </td>
+          <td>
+            <%= m[search_indices[:seats]] %>
+          </td>
+          <td>
+            <%= render 'multiline_course_cell', field: m[search_indices[:days]] %>
+          </td>
+          <td>
+            <%= render 'multiline_course_cell', field: m[search_indices[:time]] %>
+          </td>
+          <td>
+            <%= render 'multiline_course_cell', field: m[search_indices[:room]] %>
+          </td>
+          <td>
+            <%= render 'multiline_course_cell', field: m[search_indices[:dates]] %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
 </div>
