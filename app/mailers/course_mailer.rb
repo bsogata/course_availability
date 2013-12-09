@@ -11,6 +11,11 @@ class CourseMailer < ActionMailer::Base
   	mail(to: @user.email, subject: 'Welcome to UH Course Availability web application')
   end
   
+  # Confirmation message that the user has added a particular class to the tracking list on their 
+  # profile.
+  #
+  # Parameters: user - the user object created when the account was created
+  #				course - the class the user specified for tracking
   def tracking_email(user, course)
 		@user = user
 		@course = course
@@ -18,9 +23,10 @@ class CourseMailer < ActionMailer::Base
 																									 ("%03d" % @course.section)}")
   end
   
-  # To send out notification email of the seats for particular classes
+  # To send out notification email of the seats for particular classes that user have set 
+  # for tracking.
   #
-  # Parameters: user - the user object created when the account is created
+  # Parameters: user - the user object created when the account was created
   #             courses - the classes
   def notify_email(user, courses)
   	@user = user

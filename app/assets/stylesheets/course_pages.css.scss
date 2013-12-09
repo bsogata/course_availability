@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
 
-
+/* Styling for navigational bar that appears on each page */
 .navbar-inverse .navbar-inner {
 
 	background-color: #00BA00;
@@ -82,7 +82,7 @@ header {
 	padding-top: 100px;
 }
 
-/* Combobox */
+/* Combobox / drop down menu on the Coure List page */
 .box-row {
 	padding-top: 100px;
 	padding-left: 80px;
