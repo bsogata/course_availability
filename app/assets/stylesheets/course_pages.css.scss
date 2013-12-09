@@ -27,6 +27,7 @@
 .hero-unit {
 	background-color: #FFFFFF;
 	
+	/* Layout of the icons on the Home page * /
 	img {
 		float: center;
 		height: 100px;
@@ -43,13 +44,13 @@
 	
 }
 
+/* Retain link color to be the same as without hovering over it */
 a:hover {
 	color: #FFFFFF;
 	text-decoration: none;
 }
 
-/* logo */
-
+/* Logo or title of our website at the upper left */
 #logo {
   float: left;
   margin-right: 0px;
@@ -92,7 +93,7 @@ header {
 }
 
 
-/* Row manipulation for the Course List page */
+/* Organizes the layout of the table that displays the courses */
 .list-row {
 	padding-top: 70px;
 	padding-left: 350px;
