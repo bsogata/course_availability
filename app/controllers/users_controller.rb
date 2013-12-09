@@ -17,6 +17,8 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       @user = User.new(user_params)
+      @user.frequency = "min"
+      @user.frequency_value = 1;
       
       if @user.save
         sign_in @user

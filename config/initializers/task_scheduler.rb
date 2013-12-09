@@ -104,12 +104,12 @@ scheduler.every("2m") do
     	end
     elsif u.frequency == 'min'
     	scheduler.in(u.frequency_value.to_s() + "m") do
-			CourseMailer.notify_email(u, tracked_courses).deliver unless tracked_courses.empty?
-		end
-	elsif u.frequency == 'hr'
-		scheduler.in(u.frequency_value.to_s() + "h") do
-			CourseMailer.notify_email(u, tracked_courses).deliver unless tracked_courses.empty?
-		end
-	end
+		  	CourseMailer.notify_email(u, tracked_courses).deliver unless tracked_courses.empty?
+	  	end
+  	elsif u.frequency == 'hr'
+      scheduler.in(u.frequency_value.to_s() + "h") do
+        CourseMailer.notify_email(u, tracked_courses).deliver unless tracked_courses.empty?
+      end
+    end
   end
 end 
