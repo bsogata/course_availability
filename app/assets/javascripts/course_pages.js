@@ -1,3 +1,15 @@
+/*
+ * JavaScript used in the course_pages controller.
+ *
+ * Author: Branden Ogata
+ * 
+ */
+
+/*
+ * Prepares the Department select tag once the page loads.
+ * 
+ */
+
 $(document).ready(function()
 {
   updateDepartments();

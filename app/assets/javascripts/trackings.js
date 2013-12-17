@@ -1,3 +1,18 @@
+/*
+ * JavaScript used in the course_pages controller.
+ *
+ * Author: Hansen Cheng
+ *         Branden Ogata
+ * 
+ */
+
+/*
+ * Prepares the Department select tag once the page loads.
+ *
+ * Author: Branden Ogata
+ * 
+ */
+
 $(document).ready(function()
 {
   updateDepartments();
@@ -5,7 +20,9 @@ $(document).ready(function()
 
 /*
  * Populates the Department select tag.
- * 
+ *
+ * Author: Hansen Cheng
+ *         Branden Ogata
  */
  
 function updateDepartments()
@@ -21,6 +38,8 @@ function updateDepartments()
 
 /*
  * Populates the Course select tag.
+ * 
+ * Author: Branden Ogata
  * 
  */
  
@@ -48,6 +67,8 @@ function updateCourses()
  *   departments    The array containing department names.
  *   courses        The array containing the courses for the above departments.
  *
+ * Author: Branden Ogata
+ * 
  */
 
 function setCourseData(departments, courses)
