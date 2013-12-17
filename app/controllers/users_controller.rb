@@ -1,8 +1,23 @@
+#
+# The users controller.
+#
+# Based heavily on the User controller in the Ruby on Rails tutorial by Michael Hartl at:
+# http://ruby.railstutorial.org/
+#
+# Author: Hansen Cheng
+#         Branden Ogata
+#
+
 class UsersController < ApplicationController
   include ActionView::Helpers::TextHelper
-  include UsersHelper
   before_filter :signed_in_user, only: [:edit, :update, :destroy]
   before_filter :correct_user, only: [:edit, :update, :destroy]
+  
+  #
+  # The user creation page.
+  #
+  # Author: Branden Ogata
+  #
   
   def new
     if signed_in?
@@ -11,6 +26,13 @@ class UsersController < ApplicationController
       @user = User.new
     end  
   end
+  
+  #
+  # Creates a new user.
+  #
+  # Author: Hansen Cheng
+  #         Branden Ogata
+  #
   
   def create
     if signed_in?
@@ -34,13 +56,34 @@ class UsersController < ApplicationController
     end
   end
   
+  #
+  # The profile page for the user.
+  #
+  # Author: Hansen Cheng
+  #         Branden Ogata
+  #
+  
   def show
     @user = User.find(params[:id])
     @trackings = Tracking.where(user_id: @user.id)
   end
   
+  #
+  # The settings page for the user.
+  #
+  # The methods in the sessions helper mean that nothing needs to be set up here.
+  #
+  # Author: Branden Ogata
+  #
+  
   def edit
   end
+  
+  #
+  # Updates user information.
+  #
+  # Author: Branden Ogata
+  #
   
   def update
     for p in params[:user]
@@ -60,6 +103,12 @@ class UsersController < ApplicationController
     end
   end
   
+  #
+  # Deletes a user account.
+  #
+  # Author: Branden Ogata
+  #
+  
   def destroy
     User.find(params[:id]).delete
     Tracking.where(user_id: params[:id]).delete_all
@@ -68,12 +117,25 @@ class UsersController < ApplicationController
   end
   
   private
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_path) unless current_user?(@user)
-  end
   
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :frequency, :frequency_value)
-  end
+    #
+    # Verifies that this user is the correct user.
+    #
+    # Author: Branden Ogata
+    #
+    
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user)
+    end
+    
+    #
+    # The list of available user fields.
+    #
+    # Author: Branden Ogata
+    # 
+    
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :frequency, :frequency_value)
+    end
 end

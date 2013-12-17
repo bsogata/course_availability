@@ -1,14 +1,26 @@
+#
+# Methods to help with user operations, particularly in sending notification emails.
+#
+# Author: Hansen Cheng
+#         Branden Ogata
+#
+
 module UsersHelper
-    # Under development
-    # 
-    # This method accepts a input of a user variable and obtains the
-    # frequency value and the frequency e.g. daily, min, or hr.
-    # 
-    # Based on the frequency it uses a scheduler to send out emails.
-    #
-    # As of now it sends email based on frequency, but not based on
-    # if the seats have been deducted.
-    #
+  # 
+  # This method accepts a input of a user variable and obtains the
+  # frequency value and the frequency e.g. daily, min, or hr.
+  # 
+  # Based on the frequency it uses a scheduler to send out emails.
+  #
+  # As of now it sends email based on frequency, but not based on
+  # if the seats have been deducted.
+  #
+  # Parameters:
+  #   user    The User to create a Rufus task for.
+  #
+  # Author: Hansen Cheng
+  #
+    
 	def perform(user)
 		@user = user
 		@frequent_value = @user.frequency_value
@@ -53,6 +65,8 @@ module UsersHelper
 	#
 	# Returns:
 	#   An array containing Course instances to send notifications for.
+	#
+	# Author: Branden Ogata
 	#
 	
   def courses_to_email(user)

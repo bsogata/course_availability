@@ -1,6 +1,12 @@
 require 'nokogiri'
 require 'open-uri'
 
+#
+# Provides methods to help with tracking courses.
+#
+# Author: Branden Ogata
+#
+
 module TrackingsHelper
   #
   # Returns the semesters for which courses are listed on the UH Course Availability site.

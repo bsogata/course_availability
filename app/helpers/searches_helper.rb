@@ -1,6 +1,12 @@
 require 'nokogiri'
 require 'open-uri'
 
+#
+# Contains methods to help when searching for courses on the UH Course Availability site.
+#
+# Author: Branden Ogata
+#
+
 module SearchesHelper
   #
   # Returns all matches for the target within the HTML in the given URL.

@@ -1,12 +1,32 @@
 include ActionView::Helpers::TextHelper
 
+#
+# The searches controller.
+#
+# Author: Hansen Cheng
+#         Branden Ogata
+# 
+
 class SearchesController < ApplicationController
 
+  #
+  # The point of entry into the search feature due to the default behavior of the Submit button.
+  #
+  # Author: Hansen Cheng
+  #         Branden Ogata
+  #
+  
   def create
     # Actual search should be performed in index
     flash[:search] = params[:search]
     redirect_to searches_path
   end
+  
+  #
+  # Prepares to display the search results in the index view.
+  #
+  # Author: Branden Ogata
+  #
   
   def index
     # This will display the results of the search

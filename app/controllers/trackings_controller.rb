@@ -1,7 +1,20 @@
 require 'nokogiri'
 require 'open-uri'
 
+#
+# The trackings controller.
+#
+# Author: Hansen Cheng
+#         Branden Ogata
+#
+
 class TrackingsController < ApplicationController
+  #
+  # Creates a new Tracking relationship.
+  #
+  # Author: Branden Ogata
+  #
+  
   def create
     course_param = params[:course]
     department = params[:department]
@@ -157,11 +170,21 @@ class TrackingsController < ApplicationController
     redirect_to :back
   end
   
+  #
+  # Destroys a tracking relationship.
+  #
+  # If no other user is tracking the course of the tracking being deleted,
+  # deletes the course as well to help clean up the database.
+  #
+  # Author: Branden Ogata
+  #
+  
   def destroy
     tracking = Tracking.find(params[:id])
     course = Course.find(tracking.course_id)
     course_name = "#{course.name}-#{"%03d" % course.section}"
     
+    # Delete tracking, then delete course if it is no longer tracked anywhere else
     tracking.delete
     course.delete if Tracking.where(course_id: course.id).length == 0
     
