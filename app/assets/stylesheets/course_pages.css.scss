@@ -12,7 +12,7 @@
 	filter: none;
 }
 
-
+/* Border for the navigation bar */
 .navbar .container {
 	margin: none;
 	width: auto;
@@ -63,6 +63,7 @@ a:hover {
   line-height: 1;
 }
 
+/* Logo of website retains the same color when cursor hovers over it */
 #logo:hover {
   color: #FFFFFF;
   text-decoration: none;

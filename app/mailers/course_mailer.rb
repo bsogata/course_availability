@@ -11,7 +11,7 @@ class CourseMailer < ActionMailer::Base
   	mail(to: @user.email, subject: 'Welcome to UH Course Availability web application')
   end
   
-  # Confirmation message that the user has added a particular class to the tracking list on their 
+  # Confirmation message to notify the user has added a particular class to the tracking list on their 
   # profile.
   #
   # Parameters: user - the user object created when the account was created
