@@ -2,6 +2,13 @@ include UsersHelper
 require 'nokogiri'
 require 'open-uri'
 
+#
+# Schedules the automatic tasks that check the UH Course Availability site and send out emails.
+#
+# Author: Hansen Cheng
+#         Branden Ogata
+#
+
 # This automatically calls courses_to_email every minute
 scheduler = Rufus::Scheduler.new
 

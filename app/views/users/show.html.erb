@@ -1,5 +1,15 @@
 <% provide(:title, @user.name) %>
 
+<!--
+  The Profile page.
+  
+  This displays the courses that the user is tracking and contains drop-down menus through which
+  to track courses.
+  
+  Author: Hansen Cheng
+          Branden Ogata
+-->
+
 <!-- Get the departments and courses for JavaScript to use later -->
 <% courses = get_test_courses() %>
 <%= javascript_tag do %>

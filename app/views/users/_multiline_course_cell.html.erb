@@ -1,3 +1,16 @@
+<!--
+  Breaks text into two lines.
+  
+  This is used for table entries that take two rows, such as the room of courses with labs,
+  where the lecture room is on one row and the lab room is on the next.  Actually creating two rows
+  would create an additional border though (as shown in the course list page), which is not
+  aesthetically pleasing and makes it more difficult to visually group the lecture and lab
+  together.  For that reason, this adds a line break to replace the newline, keeping the field in
+  one table row but on separate lines.
+  
+  Author: Branden Ogata
+-->
+
 <% if field.include?("\n") %>
   <%= field[0 ... field.index("\n")] %><br />
   <%= field[field.index("\n") + 1 ... field.length] %>

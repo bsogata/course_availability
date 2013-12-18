@@ -1,5 +1,13 @@
 <% provide(:title, 'Course List') %>
 
+<!--
+  Displays the list of courses for a particular department.
+  
+  Author: Hansen Cheng
+          Branden Ogata
+-->  
+
+
 <% department_pages = get_department_pages() %>
 <%= javascript_tag do %>
   setDepartmentData(<%= raw ['ICS', 'MATH', 'PSY'].to_json %>, <%= raw department_pages.to_json %>);

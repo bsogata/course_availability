@@ -8,6 +8,8 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
+# Author: Branden Ogata
+#
 
 class Tracking < ActiveRecord::Base
 end

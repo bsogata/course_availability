@@ -17,6 +17,9 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
+# Author: Hansen Cheng
+#         Branden Ogata
+#
 
 class Course < ActiveRecord::Base
 	
