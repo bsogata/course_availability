@@ -1,3 +1,9 @@
+#
+# Tests the signin functionality.
+#
+# Author: Branden Ogata
+#
+
 Feature: Signing in
   Scenario: Unsuccessful signin
     Given a user visits the signin page
